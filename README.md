@@ -1,4 +1,4 @@
 # CMPS480Summer2021
 Senior Project Class Professional Attire Project 
 
-#Branch created 
+#Paulina created a new branch 
