@@ -1,0 +1,32 @@
+# professional clothing for students
+# Senior Project
+
+
+
+:professionalclothingstudents_Website: Professional Clothing For Students
+:professionalclothingstudents_ENV: Staging
+:professionalclothingstudents_URL: http://asalbug.it.pointpark.edu/
+:professionalclothingstudents_STATUS: OFFLINE
+:professionalclothingstudents_VERSION: 0.1
+
+# What is professional clothing for students?
+The website is for studnets to buy professional attire for school or work.
+
+# What OS professional clothing for students Reside on?
+It's an native HTML website that can be accessed through any mobile browser or regular web browser.
+
+
+# What Enviorment was the App Developed in?
+ Github
+ Visual Studio
+ Element
+
+
+## Application Environment Details
+
+[grid="rows",format="csv"]
+[options="header", cols="^,<,<s,<,>m"]
+|==========================
+App,Location,Environment,URL,Status,Version
+`{professionalclothingstudents_Website}`,`{professionalclothingstudents_ENV}`,`{professionalclothingstudents_URL}`,`{professionalclothingstudents_STATUS}`,`{professionalclothingstudents_VERSION}`
+|==========================
