@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 480</title>
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+ $(function() {
+   //console.log("jquery loaded!");
+
+   function showUsers() {
+     $("#users").empty();
+     $("#users").append("Loading data ...");
+     $.ajax({
+       type: "GET",
+       url: "users",
+       success: function(json) {
+         //console.log(JSON.stringify(json));
+         if (!json.success) {
+           alert(json.message);
+         }
+         else {
+           $("#users").empty();
+           var rows = json.data;
+           for (var i = 0; i < rows.length; i++) {
+             $("#users").append(rows[i].ID + " " + rows[i].NAME + "<br>");
+           }
+         }
+       },
+       error: function (textStatus, errorThrown) {
+         alert("Request failed!");
+       }
+     });
+   }
+   showUsers();
+   
+   $("#new_name_button").click(function() {
+     var name = $("#new_name_input").val();
+     $.ajax({
+       type: "POST",
+       url: "add_user",
+       data: JSON.stringify({
+         name: name
+       }),
+       success: function(json) {
+         //console.log(JSON.stringify(json));
+         if (!json.success) {
+           alert(json.message);
+         }
+         else {
+           showUsers();
+         }
+       },
+       error: function (textStatus, errorThrown) {
+         alert("Request failed!");
+       }
+     });
+   });
+ });
+</script>
+</head>
+<body>
+  This is the homepage for CMPS 480!<br><br>
+  <input type="text" id="new_name_input"></input><button id="new_name_button">Submit</button><br><br>
+  <div id="users"></div>
+</body>
+</html>
