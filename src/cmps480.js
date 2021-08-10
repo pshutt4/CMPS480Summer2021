@@ -11,8 +11,14 @@ http.createServer(function(req, res) {
     if (path === "/users") {
       users(req, res);
     }
+    else if (path === "/clothing") {
+      clothing(req, res);
+    }
     else if (path === "/add_user") {
       addUser(req, res);
+    }
+    else if (path === "/add_clothing") {
+      addClothing(req, res);
     }
     else {
       serveStaticFile(res, path);
@@ -100,6 +106,35 @@ function users(req, res) {
     conn.end();
   });
 }
+function clothing(req, res) {
+  var conn = mysql.createConnection(credentials.connection);
+  // connect to database
+  conn.connect(function(err) {
+    if (err) {
+      console.error("ERROR: cannot connect: " + e);
+      return;
+    }
+    // query the database
+    conn.query("SELECT * FROM Clothing", function(err, rows, fields) {
+      // build json result object
+      var outjson = {};
+      if (err) {
+        // query failed
+        outjson.success = false;
+        outjson.message = "Query failed: " + err;
+      }
+      else {
+        // query successful
+        outjson.success = true;
+        outjson.message = "Query successful!";
+        outjson.data = rows;
+      }
+      // return json object that contains the result of the query
+      sendResponse(req, res, outjson);
+    });
+    conn.end();
+  });
+}
 
 function addUser(req, res) {
   var body = "";
@@ -123,6 +158,47 @@ function addUser(req, res) {
       // query the database
       //conn.query("INSERT INTO USERS (NAME) VALUE ('" + injson.name + "')", function(err, rows, fields) {
       conn.query("INSERT INTO USERS (NAME) VALUE (?)", [injson.name], function(err, rows, fields) {
+        // build json result object
+        var outjson = {};
+        if (err) {
+          // query failed
+          outjson.success = false;
+          outjson.message = "Query failed: " + err;
+        }
+        else {
+          // query successful
+          outjson.success = true;
+          outjson.message = "Query successful!";
+        }
+        // return json object that contains the result of the query
+        sendResponse(req, res, outjson);
+      });
+      conn.end();
+    });
+  });
+}
+function addClothing(req, res) {
+  var body = "";
+  req.on("data", function (data) {
+    body += data;
+    // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+    if (body.length > 1e6) {
+      // FLOOD ATTACK OR FAULTY CLIENT, NUKE REQUEST
+      req.connection.destroy();
+    }
+  });
+  req.on("end", function () {
+    var injson = JSON.parse(body);
+    var conn = mysql.createConnection(credentials.connection);
+    // connect to database
+    conn.connect(function(err) {
+      if (err) {
+        console.error("ERROR: cannot connect: " + e);
+        return;
+      }
+      // query the database
+      //conn.query("INSERT INTO USERS (NAME) VALUE ('" + injson.name + "')", function(err, rows, fields) {
+      conn.query("INSERT INTO Clothing (Description) VALUE (?)", [injson.name], function(err, rows, fields) {
         // build json result object
         var outjson = {};
         if (err) {
