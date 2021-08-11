@@ -1,77 +1,48 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html lang="en" dir="ltr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=360, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+	<link rel="stylesheet" href="css/main.css">
+</head>
 
- <head> 
-   <link rel="stylesheet" href="stylesheet.css">
-  </head>
 <body>
+	<main class="main-container">
 
-<div class= "card">
-<div class= "imgBX">
-<img src="Mens suit.jpg">
-</div>
-</div>
-  <div class="wrapper">
-    <div class="right">
-      <div class="logo">Suit</div>
-      
-      <div class="about">
-        
-      </div>
-      <button>
-        <h2>Rent</h2>
-        <h2>$30</h2>
-       </button>
-      
-    </div>
-   </div>
-   
-<button type="button">Click to add</button>
+		<section class="section">
+			<h2 class="text-center"> Mens Attire</h2>
+			<div class="products">
+				<div class="product">
+					<img class="product__image" src="img/Mens suit.jpg" alt="Su">
+					<h2 class="product__name">Men's suit</h2>
+					<h3 class="product__price">30</h3>
+					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
+				</div>
+				<div class="product">
+					<img class="product__image" src="img/mens dress pant.jpg" alt="pants">
+					<h2 class="product__name">Mens dress pants</h2>
+					<h3 class="product__price">10.00</h3>
+					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
+				</div>
+				<div class="product">
+					<img class="product__image" src="img/mens dress shirt" alt="shirt">
+					<h2 class="product__name">Men's dress shirt</h2>
+					<h3 class="product__price">10.00</h3>
+					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
+				</div>
+			</section>
 
+		<section class="section">
+			<h2 class="text-center">Cart</h2>
+			<div class="cart"></div>
+		</section>
+
+	</main>
+
+	<script src="js/main.js"></script>
 </body>
-    
 
-<body>
-  <div class= "card">
-    <div class= "imgBX">
-<img src="mens dress pant.jpg" >
-  <div class="wrapper">
-    <div class="right">
-      <div class="logo">Pants</div>
-      
-      <div class="about">
-        
-      </div>
-      <button>
-        <h2>Rent</h2>
-        <h2>$30</h2>
-      </button>
-    </div>
-  </div>
-  
-  <button type="button">Click to add</button>
-
-  </body>
-  
-  <body>
-    <div class= "card">
-      <div class= "imgBX">
-  <img src="mens dress shirt.jpg">
-  <div class="wrapper">
-    <div class="right">
-      <div class="logo">Shirts</div>
-      
-      <div class="about">
-        
-      </div>
-      <button>
-        <h2>Rent</h2>
-        <h2>$30</h2>
-      </button>
-      
-    </div>
-    </div>
-    <button type="button">click to add</button>
-  </body>
 </html>
