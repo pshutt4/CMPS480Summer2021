@@ -87,13 +87,18 @@
    }
    showCustomers();
    
-   $("#new_Customers_button").click(function() {
-     var name = $("#new_Customers_input").val();
+   $("#new_checkout_button").click(function() {
+     console.log ("function executes")
+     var name = $("#new_customers_input").val();
+     var address = $("#new_address_input").val();
+     var phone = $("#new_phone_input").val();
      $.ajax({
        type: "POST",
-       url: "add_Customers",
+       url: "add_checkout",
        data: JSON.stringify({
-         name: name
+         CustomerName: name,
+         CustomerAddress: address,
+         CustomerPhone: phone,
        }),
        success: function(json) {
          //console.log(JSON.stringify(json));
