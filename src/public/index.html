@@ -57,11 +57,75 @@
      });
    });
  });
+
+ $(function() {
+   //console.log("jquery loaded!");
+
+   function showCustomers() {
+     $("#Customers").empty();
+     $("#Customers").append("Loading data ...");
+     $.ajax({
+       type: "GET",
+       url: "Customers",
+       success: function(json) {
+         //console.log(JSON.stringify(json));
+         if (!json.success) {
+           alert(json.message);
+         }
+         else {
+           $("#Customers").empty();
+           var rows = json.data;
+           for (var i = 0; i < rows.length; i++) {
+             $("#Customers").append(rows[i].ID + " " + rows[i].CustomerName + "<br>");
+           }
+         }
+       },
+       error: function (textStatus, errorThrown) {
+         alert("Request failed!");
+       }
+     });
+   }
+   showCustomers();
+   
+   $("#new_checkout_button").click(function() {
+     console.log ("function executes")
+     var name = $("#new_customers_input").val();
+     var address = $("#new_address_input").val();
+     var phone = $("#new_phone_input").val();
+     $.ajax({
+       type: "POST",
+       url: "add_checkout",
+       data: JSON.stringify({
+         CustomerName: name,
+         CustomerAddress: address,
+         CustomerPhone: phone,
+       }),
+       success: function(json) {
+         //console.log(JSON.stringify(json));
+         if (!json.success) {
+           alert(json.message);
+         }
+         else {
+           showCustomers();
+         }
+       },
+       error: function (textStatus, errorThrown) {
+         alert("Request failed!");
+       }
+     });
+   });
+ });
+ 
 </script>
 </head>
 <body>
   This is the homepage for CMPS 480!<br><br>
   <input type="text" id="new_name_input"></input><button id="new_name_button">Submit</button><br><br>
-  <div id="users"></div>
+    <div id="users"></div><br></br>
+    
+    This is the customer information<br><br>
+  <input type="text" id="new_Customers_input"></input><button id="new_Customers_button">Customers</button><br><br>
+    <div id="Customers"></div>
+
 </body>
 </html>
