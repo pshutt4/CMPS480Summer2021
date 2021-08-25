@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>ProjectName</title>
+		<title>Point Professional</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="favicon.ico">
 	</head>
@@ -24,12 +24,7 @@
 				margin: 0;
 				padding: 0;
 			}
-			body {
-				display: block;
-				position: relative;
-				overflow: hidden;
-				text-align: center;
-			}
+			
 			.background {
 				position: fixed;
 				top: 0;
@@ -154,31 +149,56 @@
 			.project__link:hover{
 				text-decoration: none;
 			}
+			.button {
+				background-color: #FFFFFF;
+				border: 2px solid #000000;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+				-webkit-transition-duration: 0.4s;
+  				transition-duration: 0.4s;
+			}
+			.button1:hover {
+  				box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+			}
+      		img {
+          		border: 5px double #555;
+     		}
+			
 		</style>
-		
+
+			
 		<div class="background background_image background_blur"></div>
 		<div class="overlay overlay_dark">
 			<main class="project">
 				<h1 id="fit" class="project__name project__name_shadow">Point Professional</h1>
-
+				<hr>
 				<ul class="project__list">
 					<li class="project__item">
 						<ul class="project__list">
 							<li class="project__item">
-								<a href="#" class="project__link">Attire</a>
-							</li>
+
+                            <button style="font-family:verdana" class="button button1" onclick="window.location.href='packages.html';"> Attire </button>
+                            </li>
 							<li class="project__item">
-								<a href="#" class="project__link">Mens</a>
+								<button style="font-family:verdana" class="button button1" onclick="window.location.href='Checkout.html';"> Checkout </button>
 							</li>
-							<li class="project__item">
-								<a href="#" class="project__link">Womens</a>
-							</li>
-							<li class="project__item">
-								<a href="#" class="project__link">checkout</a>
-							</li>
-						</ul>
-					
-		<script>
+				
+		<center><p style = "font-family:georgia,garamond,serif;font-size:20px;font-style:normal;">Welcome to the Point Park Professional rental service. Point Park goes above and beyond by providing their 
+
+			students with the opportunity to rent clothing in order to further
+			prepare their students on interviews. 
+		</p></center>
+
+
+		<br><center><img src="homepage.PNG" width="500"></center></br>
+
+		<script>	
+
 			!function(){var n=function(n,t,e){n.addEventListener?n.addEventListener(t,e,!1):n.attachEvent("on"+t,e)},t=function(n,t){for(key in t)t.hasOwnProperty(key)&&(n[key]=t[key]);return n};window.fitText=function(e,i,o){if(e.length){var a=t({minFontSize:-1/0,maxFontSize:1/0},o),r=function(t){var e=i||1,o=function(){t.style.fontSize=Math.max(Math.min(t.clientWidth/(10*e),parseFloat(a.maxFontSize)),parseFloat(a.minFontSize))+"px"};o(),n(window,"resize",o)};if(e.length)for(var f=0;f<e.length;f++)r(e[f]);else r(e);return e}}}(),function(){window.fitText(document.getElementsByClassName("project__name_fit"),1)}();
 		</script>
 	</body>
