@@ -1,5 +1,4 @@
 # CMPS48
-
 # How To:
 
 First you want to download the files from GitHub.
