@@ -246,7 +246,7 @@ function addCheckout(req, res) {
       }
       // query the database
       //conn.query("INSERT INTO USERS (NAME) VALUE ('" + injson.name + "')", function(err, rows, fields) {
-      conn.query("INSERT INTO Customers (CustomerName, CustomerAddress, CustomerPhone) VALUE (?,?,?)", [injson.CustomerName, injson.CustomerAddress, injson.CustomerPhone], function(err, rows, fields) {
+      conn.query("INSERT INTO Customers (CustomerName, CustomerAddress, CustomerStudentID) VALUE (?,?,?)", [injson.CustomerName, injson.CustomerAddress, injson.CustomerPhone], function(err, rows, fields) {
         // build json result object
         var outjson = {};
         if (err) {
